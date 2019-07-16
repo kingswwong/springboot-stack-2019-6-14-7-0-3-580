@@ -61,4 +61,8 @@ public class EmployeeService implements EmployeeDao {
         }
         return false;
     }
+
+    public List<Employee> findTheMatchEmployee(int age){
+        return employeeList.stream().filter(employee -> employee.getAge() > age).collect(Collectors.toList());
+    }
 }

@@ -40,4 +40,9 @@ public class EmployeeController {
         Employee employee = employeeService.getEmployeeById(id);
         return employeeService.delete(id) ? employee : null;
     }
+
+    @GetMapping(value = "/age/{age}")
+    public List<Employee> findTheMatchEmployee(@PathVariable int age){
+        return employeeService.findTheMatchEmployee(age);
+    }
 }
