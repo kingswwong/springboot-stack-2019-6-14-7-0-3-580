@@ -1,8 +1,10 @@
 package com.tw.apistackbase.dao;
 
 import com.tw.apistackbase.entity.Employee;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 
 public interface EmployeeDao {
     Employee getEmployeeById(int id);
