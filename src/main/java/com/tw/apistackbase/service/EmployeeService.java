@@ -34,8 +34,8 @@ public class EmployeeService implements EmployeeDao {
     }
 
     @Override
-    public List<Employee> findAll(String age) {
-        return age == null ? employeeList : employeeList.stream().filter(employee -> employee.getAge() > Integer.parseInt(age)).collect(Collectors.toList());
+    public List<Employee> findAll(int ageMini) {
+        return employeeList.stream().filter(employee -> employee.getAge() > ageMini ).collect(Collectors.toList());
     }
 
     @Override

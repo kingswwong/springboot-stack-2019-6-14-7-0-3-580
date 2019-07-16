@@ -14,9 +14,14 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping
-    public List<Employee> getEmployeeList(@RequestParam(name = "age",required=false)String age) {
+    @GetMapping(params = "ageMini")
+    public List<Employee> getEmployeeList(@RequestParam(name = "ageMini")int age) {
         return employeeService.findAll(age);
+    }
+
+    @GetMapping
+    public List<Employee> getEmployeeList() {
+        return employeeService.findAll();
     }
 
     @GetMapping(value = "/{id}")
