@@ -34,6 +34,11 @@ public class EmployeeService implements EmployeeDao {
     }
 
     @Override
+    public List<Employee> findAll(String age) {
+        return age == null ? employeeList : employeeList.stream().filter(employee -> employee.getAge() > Integer.parseInt(age)).collect(Collectors.toList());
+    }
+
+    @Override
     public boolean insert(Employee employee) {
         if(employeeList.contains(employee)){
             return false;
@@ -61,8 +66,5 @@ public class EmployeeService implements EmployeeDao {
         }
         return false;
     }
-
-    public List<Employee> findTheMatchEmployee(int age){
-        return employeeList.stream().filter(employee -> employee.getAge() > age).collect(Collectors.toList());
-    }
+    
 }

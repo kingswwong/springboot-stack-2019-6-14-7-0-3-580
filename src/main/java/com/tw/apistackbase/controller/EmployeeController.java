@@ -15,8 +15,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public List<Employee> getEmployeeList() {
-        return employeeService.findAll();
+    public List<Employee> getEmployeeList(@RequestParam(name = "age",required=false)String age) {
+        return employeeService.findAll(age);
     }
 
     @GetMapping(value = "/{id}")
@@ -41,8 +41,4 @@ public class EmployeeController {
         return employeeService.delete(id) ? employee : null;
     }
 
-    @GetMapping(value = "/age/{age}")
-    public List<Employee> findTheMatchEmployee(@PathVariable int age){
-        return employeeService.findTheMatchEmployee(age);
-    }
 }
